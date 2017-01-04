@@ -5,7 +5,11 @@
 ### Backend
 - install spring boot cli : http://docs.spring.io/spring-boot/docs/current/reference/html/getting-started-installing-spring-boot.html
 - spring init --dependencies=web poc_backend
-- lunch project : mvn spring-boot:run
+
+#### Run project
+```
+mvn spring-boot:run
+```
 
 ### Frontend
 - mkdir poc_frontend
@@ -21,3 +25,10 @@ mkdir src\app\features
 ng g module features\feature1  
 ng g module features\feature2  
 ng g component core\menu  
+
+#### Run project
+```
+npm start
+or
+ng serve --proxy-config proxy.conf.json
+```

@@ -14,11 +14,10 @@
 
 - Add proxy.conf.json in package.json (more info about how to configure the proxy: https://webpack.github.io/docs/webpack-dev-server.html#proxy)
 
-- create modules and components
-ng g module core
-ng g module shared
-mkdir src\app\features
-ng g module features\feature1
-ng g module features\feature2
-
-ng g component core/menu
+- create modules and components  
+ng g module core  
+ng g module shared  
+mkdir src\app\features  
+ng g module features\feature1  
+ng g module features\feature2  
+ng g component core\menu  

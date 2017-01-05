@@ -1,13 +1,13 @@
+import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from "@angular/router";
 
 const appRoutes: Routes = [
-  {path: '', redirectTo: '/backend', pathMatch: 'full'}
-  /*,
-  {path:'candidatures', loadChildren: 'app/features/candidatures/candidatures-routing.module#CandidaturesRoutingModule'},
-  {path:'social-services', loadChildren: 'app/features/social-services/social-services.module#SocialServicesModule'},
-  {path:'buildings', loadChildren: 'app/features/buildings/buildings-routing.module#BuildingsRoutingModule'},
-  {path:'shared', loadChildren: 'app/shared/shared-routing.module#SharedRoutingModule'}
-  */
+  {path: '', redirectTo: '/backend', pathMatch: 'full'},
+  {path:'features2', loadChildren: 'app/features/feature2/feature2.module#Feature2Module'}
 ];
 
-export const routing : any = RouterModule.forRoot(appRoutes);
+@NgModule({
+  imports: [RouterModule.forRoot(appRoutes)],
+  exports: [RouterModule]
+})
+export class AppRoutingModule {}

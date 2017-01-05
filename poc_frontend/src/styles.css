@@ -9,7 +9,7 @@ body{
 }
 
 app-menu{
-  width: 220px;
+  width: 200px;
 }
 /* Overwrite bootstrap styles*/
 ul.nav a:hover, ul.nav a:focus {

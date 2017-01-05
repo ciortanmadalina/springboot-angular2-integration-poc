@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule } from '@angular/router';
-import { BackendComponent } from './backend/backend.component';
-import { TranslationComponent } from './translation/translation.component';
+import { BackendComponent } from './components/backend/backend.component';
+import { TranslationComponent } from './components/translation/translation.component';
 @NgModule({
   imports: [
     RouterModule.forChild([

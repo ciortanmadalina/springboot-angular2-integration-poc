@@ -1,0 +1,33 @@
+<h2>Translation</h2>
+Translation files are located in app/i18n. <br>
+For instance, fr.json has the following content : <br>
+<textarea readonly rows="8">
+  {
+    "menu":{
+      "entry1":"Entry 1 en français",
+      "entry2":"Entry 2 en français",
+      "helloWorld":"Message with param : {{value}}"
+    }
+  }
+</textarea>
+<br>
+ These labels can be used as :
+<pre>{{ 'menu.entry1' | translate }<!>}</pre>
+ which retrieves: {{ 'menu.entry1' | translate }}
+<br>
+
+<h3>Passing parameters</h3>
+
+Parameters can be passed as:
+<textarea readonly>
+  <div translate [translateParams]="{value: 'world'}">menu.helloWorld</div>
+</textarea>
+or
+<textarea readonly>
+  <div [translate]="'menu.helloWorld'" [translateParams]="{value: 'world'}"></div>
+</textarea>
+
+Which produce a similar result : <div translate [translateParams]="{value: 'world'}">menu.helloWorld</div>
+
+<h3> Official documentation</h3>
+For further details, consult: <a href="https://github.com/ocombe/ng2-translate">ng2-translate</a>

@@ -11,7 +11,7 @@ import { TranslateService } from 'ng2-translate/ng2-translate';
 ]
 })
 export class AppComponent implements OnInit{
-  title = 'app works! :)';
+  title = 'Angular 2 POC';
 
   constructor(public http: Http, private translateService: TranslateService) {
 }

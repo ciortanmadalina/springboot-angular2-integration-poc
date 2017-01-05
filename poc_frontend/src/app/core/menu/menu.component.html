@@ -1,4 +1,7 @@
-<p>
-  Hello, I am menu component from core module ! <br>
-</p>
-  And this is a translated menu entry : {{ 'menu.entry1' | translate:{value: param} }}
+<div >
+  <ul class="nav navbar-nav">
+    <li><a [routerLink]="['/backend']" >Backend integration</a></li>
+    <li><a [routerLink]="['/translation']">Translation</a></li>
+    <li><a>Form validation</a></li>
+  </ul>
+</div>

@@ -1,0 +1,17 @@
+<h3> Backend integration</h3>
+<p>
+  In order to integrate with the backend, add a proxy.conf.json file where you define
+  how pattern of routes invoked by the frontend relate to the backend: <br>
+  {{ '{' }}
+    "/api": {{ '{' }}
+      "target": "http://localhost:8080",
+      "pathRewrite":{{ '{' }}"^/api" : ""{{ '}' }}
+    {{ '}' }}
+  {{ '}' }}
+  <br><br>
+  This configuration can be used either by modifying package.json to : <br>
+  "start": "ng serve --proxy-config proxy.conf.json" <br>
+  and starting the server with <i>npm start</i> <br><br>
+  or by starting the server with <i>ng serve --proxy-config proxy.conf.json</i>
+
+</p>

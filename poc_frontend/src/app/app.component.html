@@ -1,4 +1,9 @@
-<h1>
-  {{title}}
-  <app-menu></app-menu>
-</h1>
+<div class="content">
+    <app-menu></app-menu>
+    <div class="container">
+        <div class="jumbotron text-center">
+          <h3>{{title}}</h3>
+        </div>
+        <router-outlet></router-outlet>
+    </div>
+</div>

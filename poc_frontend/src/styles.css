@@ -1,1 +1,24 @@
 /* You can add global styles to this file, and also import other style files */
+
+body{
+  margin: 0px;
+}
+
+.content{
+  display:flex;
+}
+
+app-menu{
+  width: 220px;
+}
+/* Overwrite bootstrap styles*/
+ul.nav a:hover, ul.nav a:focus {
+  border-radius: 0px 10px 10px 0px;
+  margin: 1px;
+}
+
+.jumbotron {
+  margin-top: 5px;
+  padding-top: 20px;
+  padding-bottom: 30px;
+}

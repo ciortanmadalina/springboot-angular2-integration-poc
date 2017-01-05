@@ -25,6 +25,8 @@ mkdir src\app\features
 ng g module features\feature1  
 ng g module features\feature2  
 ng g component core\menu  
+ng g component features\feature1\backend  
+ng g component features\feature1\translation
 
 #### Run project
 ```

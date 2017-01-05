@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { RouterModule } from "@angular/router";
 import { TranslateModule, TranslateLoader, TranslateStaticLoader } from 'ng2-translate/ng2-translate';
 import { Http } from '@angular/http';
 import { MenuComponent } from './menu/menu.component';
@@ -7,6 +8,7 @@ import { MenuComponent } from './menu/menu.component';
 @NgModule({
   imports: [
     CommonModule,
+    RouterModule,
     TranslateModule.forRoot(
                     { provide: TranslateLoader,
                       useFactory: translationConfigurationFactory,

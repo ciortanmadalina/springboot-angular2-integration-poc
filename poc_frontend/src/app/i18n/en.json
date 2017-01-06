@@ -1,0 +1,5 @@
+{
+	"menu.entry1": "Entry one",
+	"custom.entry1": "",
+	"menu.helloWorld": "Message with param : {{value}}"
+}

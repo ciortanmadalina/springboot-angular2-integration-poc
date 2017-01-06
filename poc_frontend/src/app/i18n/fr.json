@@ -1,7 +1,5 @@
 {
-  "menu":{
-    "entry1":"Entry 1 en français",
-    "entry2":"Entry 2 en français",
-    "helloWorld":"Message with param : {{value}}"
-  }
+  "menu.entry1": "Entrée 1",
+	"custom.entry1": "",
+	"menu.helloWorld": "Message avec param : {{value}}"
 }

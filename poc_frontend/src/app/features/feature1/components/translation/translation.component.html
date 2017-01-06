@@ -1,33 +1,49 @@
 <h2>Translation</h2>
 Translation files are located in app/i18n. <br>
 For instance, fr.json has the following content : <br>
-<textarea readonly rows="8">
+<textarea readonly ngNonBindable autosize>
   {
-    "menu":{
-      "entry1":"Entry 1 en français",
-      "entry2":"Entry 2 en français",
-      "helloWorld":"Message with param : {{value}}"
-    }
+  	"menu.entry1": "Entry one",
+  	"custom.entry1": "",
+  	"menu.helloWorld": "Message with param : {{value}}"
   }
 </textarea>
+
 <br>
  These labels can be used as :
-<pre>{{ 'menu.entry1' | translate }<!>}</pre>
+<textarea readonly ngNonBindable autosize>{{ 'menu.entry1' | translate }}</textarea>
+
  which retrieves: {{ 'menu.entry1' | translate }}
 <br>
-
+Custom entry: {{ 'custom.entry1' | translate }}
 <h3>Passing parameters</h3>
 
 Parameters can be passed as:
-<textarea readonly>
+<textarea readonly ngNonBindable autosize>
   <div translate [translateParams]="{value: 'world'}">menu.helloWorld</div>
 </textarea>
 or
-<textarea readonly>
+<textarea readonly ngNonBindable autosize>
   <div [translate]="'menu.helloWorld'" [translateParams]="{value: 'world'}"></div>
 </textarea>
 
 Which produce a similar result : <div translate [translateParams]="{value: 'world'}">menu.helloWorld</div>
+
+<h3>Extract translated labels from source files</h3>
+In order to update all json translation files with newly added labels, run :
+<textarea readonly ngNonBindable autosize>
+  npm run extract
+</textarea>
+This script will invoke the ng2-translate-extract tool for all languages supported by the application.
+For each language it updates the central json translations file from ./src/app/i18n with discovered labels.
+
+<h3>Use translations in js code</h3>
+Example
+
+<h3>Read custom translations file</h3>
+In order to load custom translations file, a custom translations loader has to be defined like :
+<a href='https://github.com/ocombe/ng2-translate#write--use-your-own-loader'> https://github.com/ocombe/ng2-translate#write--use-your-own-loader</a>
+
 
 <h3> Official documentation</h3>
 For further details, consult: <a href="https://github.com/ocombe/ng2-translate">ng2-translate</a>

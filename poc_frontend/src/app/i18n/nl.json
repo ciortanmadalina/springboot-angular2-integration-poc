@@ -1,6 +1,5 @@
 {
-  "menu":{
-    "entry1":"Entry 1 NL",
-    "entry2":"Entry 2 NL"
-  }
+	"menu.entry1": "",
+	"custom.entry1": "",
+	"menu.helloWorld": ""
 }

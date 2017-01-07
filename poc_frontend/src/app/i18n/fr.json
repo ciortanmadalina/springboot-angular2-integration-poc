@@ -1,5 +1,5 @@
 {
-  "menu.entry1": "Entrée 1",
-	"custom.entry1": "",
+	"menu.entry1": "Entrée 1",
+	"custom.entry1": "$$$$",
 	"menu.helloWorld": "Message avec param : {{value}}"
 }

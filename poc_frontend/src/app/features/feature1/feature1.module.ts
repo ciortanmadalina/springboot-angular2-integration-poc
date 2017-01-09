@@ -5,6 +5,7 @@ import { BackendComponent } from './components/backend/backend.component';
 import { TranslationComponent } from './components/translation/translation.component';
 import { TranslateModule } from 'ng2-translate/ng2-translate';
 import { SharedModule } from './../../shared/shared.module';
+import { BackendService } from './services/backend.service';
 @NgModule({
   imports: [
     CommonModule,
@@ -13,6 +14,7 @@ import { SharedModule } from './../../shared/shared.module';
     SharedModule
   ],
   declarations: [BackendComponent, TranslationComponent],
-  exports: [BackendComponent, TranslationComponent]
+  exports: [BackendComponent, TranslationComponent],
+  providers:[BackendService]
 })
 export class Feature1Module { }

@@ -14,7 +14,7 @@
     "extract-nl-translations": "ng2-translate-extract --dir ./src --output ./src/app/i18n/nl.json --format=json --clean",
     "extract": "npm run extract-en-translations && npm run extract-fr-translations && npm run extract-nl-translations",
     "synchroniseTranslations": "synchroniseTranslations --dir ./src --translationFolder ./src/app/i18n",
-    "harcodedTexts":"i18n-lint -t '{{,}}' src/app/**/*.html"
+    "harcodedTexts":"i18n-lint -t \"{{,}}\" src/app/**/*.html"
   },
   "private": true,
   "dependencies": {

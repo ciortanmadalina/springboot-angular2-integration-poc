@@ -3,7 +3,7 @@ Translation files are located in app/i18n. <br>
 For instance, fr.json has the following content : <br>
 <textarea readonly ngNonBindable autosize>
   {
-  	"menu.entry1": "Entry one",
+  	"menu.entry1": "Entrée 1",
   	"custom.entry1": "",
   	"menu.helloWorld": "Message with param : {{value}}"
   }
@@ -14,8 +14,7 @@ For instance, fr.json has the following content : <br>
 <textarea readonly ngNonBindable autosize>{{ 'menu.entry1' | translate }}</textarea>
 
  which retrieves: {{ 'menu.entry1' | translate }}
-<br>
-Custom entry: {{ 'custom.entry1' | translate }}
+
 <h3>Passing parameters</h3>
 
 Parameters can be passed as:
@@ -38,11 +37,47 @@ This script will invoke the ng2-translate-extract tool for all languages support
 For each language it updates the central json translations file from ./src/app/i18n with discovered labels.
 
 <h3>Use translations in js code</h3>
-Example
+TranslateService can be injectected in components and can be invoked like :
+<textarea readonly ngNonBindable autosize>
+    this.translateService.get('menu.entry1')['value']
+</textarea>
 
-<h3>Read custom translations file</h3>
+<h3>Custom translation loader</h3>
 In order to load custom translations file, a custom translations loader has to be defined like :
 <a href='https://github.com/ocombe/ng2-translate#write--use-your-own-loader'> https://github.com/ocombe/ng2-translate#write--use-your-own-loader</a>
+
+<h3>Scan for hardcoded texts</h3>
+Hardcoded texts (labels not defined in translations file) can be identified with i18n-lint <a href="https://github.com/jwarby/i18n-lint">https://github.com/jwarby/i18n-lint</a>
+<br>
+It can be invoked either directly in the command line or as an npm script :
+
+<textarea readonly ngNonBindable autosize>
+  i18n-lint -t {{,}} src/app/**/*.html
+  or
+  npm run harcodedTexts
+</textarea>
+
+<h3>Synchronise translated label placeholders with translations file</h3>
+In order to make sure that the translation placeholders added in html pages are included in json translation files, an npm module has been developed
+<a href="https://www.npmjs.com/package/@ciortanmadalina/angular2-translations-synchroniser">https://www.npmjs.com/package/@ciortanmadalina/angular2-translations-synchroniser</a>
+<br>
+It performs the following steps:<br>
+- It parses all html files found in input directory, specified by --dir parameter and it extracts all translation placeholders<br>
+- For each translation file found in --translationFolder, it adds all missing placeholders with a default value of "$$$$" + label name. <br>
+This value can be configured as --missingLabel parameter <br>
+All translation json files are being analysed and if a missing label has been defined in one language, all other languages will have default value "$$$$" + existing value <br>
+<br>
+To be developed: make English preferred language for labels lookup.
+This task can be run as :
+<textarea readonly ngNonBindable autosize>
+  synchroniseTranslations --dir ./src --translationFolder ./src/app/i18n
+  or
+  npm run synchroniseTranslations
+</textarea>
+
+<h3>Update translations files from folder/url</h3>
+In order to update existing json translation files with new labels, a script will be developed as part of module:
+<a href="https://www.npmjs.com/package/@ciortanmadalina/angular2-translations-synchroniser">https://www.npmjs.com/package/@ciortanmadalina/angular2-translations-synchroniser</a>
 
 
 <h3> Official documentation</h3>

@@ -1,3 +1,91 @@
-<p>
-  validation works!
-</p>
+
+
+<form [formGroup]="personForm"  (ngSubmit)="onSubmit()">
+  <div class="form-horizontal">
+
+      The example below illustrates a the usage of multiple validators on one field. <br>
+      3 out of the box validators are attached, the error messages are translated and use parameters to pass the input validator values.
+      <br><br>
+      <textarea readonly ngNonBindable autosize>
+        this.personForm = this.fb.group({
+        'attribute1': [this.person.attribute1, [
+          Validators.required,
+          Validators.minLength(4),
+          Validators.maxLength(10)
+            ]
+        ]});
+      </textarea>
+
+    <div class="form-group ">
+      <label class="control-label col-sm-3">Attribute1 </label>
+      <div class="col-sm-9">
+        <input type="text" id="name" class="form-control" formControlName="attribute1" required >
+        <control-messages [control]="personForm.controls.attribute1"></control-messages>
+      </div>
+    </div>
+
+    <br>
+    Find below an example of cross-field custom validator:
+      <textarea readonly ngNonBindable autosize>
+        this.personForm = this.fb.group({
+          addresssGroup: this.fb.group({
+          streetName:[this.person.address.streetName,
+                      Validators.compose([ Validators.maxLength(255) ]) ],
+          streetNumber:[this.person.address.streetNumber, 
+                      Validators.maxLength(10) ],
+          zipCode:[this.person.address.zipCode, 
+                      Validators.maxLength(15)],
+          municipality:[this.person.address.municipality, 
+                      Validators.maxLength(255) ],
+          box:[ this.person.address.box,
+                      Validators.maxLength(10)]
+                },
+          {validator: CustomValidator.groupAddressValidator})
+        ]});
+      </textarea>
+    <br><br>
+    Each field has its own validators. On the group level, no address component is mandatory but if we will in at least one of
+    street name, number, zip code or city all the others become mandatory.
+    <br><br>
+
+    <div formGroupName="addresssGroup">
+        <div class="form-group">
+          <label class="control-label col-sm-3">Street name</label>
+          <div class="col-sm-9">
+            <input type="text" class="form-control contact-street-name" formControlName="streetName" >
+            <control-messages [control]="personForm.controls.addresssGroup.controls.streetName"></control-messages>
+          </div>
+        </div>
+
+        <div class="form-group">
+        <label class="control-label col-sm-3">Number</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control contact-street-number" formControlName="streetNumber" >
+          <control-messages [control]="personForm.controls.addresssGroup.controls.streetNumber"></control-messages>
+        </div>
+        <label class="control-label col-sm-3">Box</label>
+        <div class="col-sm-3">
+          <input type="text" class="form-control contact-box" formControlName="box" >
+          <control-messages [control]="personForm.controls.addresssGroup.controls.box"></control-messages>
+        </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-sm-3">Zip code</label>
+            <div class="col-sm-3">
+            <input type="text" class="form-control contact-zip-code" formControlName="zipCode" >
+            <control-messages [control]="personForm.controls.addresssGroup.controls.zipCode"></control-messages>
+            </div>
+            <label class="control-label col-sm-3">City</label>
+            <div class="col-sm-3">
+            <input type="text" class="form-control contact-municipality" formControlName="municipality" >
+            <control-messages [control]="personForm.controls.addresssGroup.controls.municipality"></control-messages>
+            </div>
+        </div>
+
+      </div> <!-- End of address group -->
+
+    <button type="submit" class="btn btn-default" [disabled]="!personForm.valid">Submit</button>
+    <button type="button" class="btn btn-default" (click)="resetForm()">Reset</button>
+  </div>
+</form>

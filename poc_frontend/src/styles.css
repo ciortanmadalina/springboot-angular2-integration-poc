@@ -22,3 +22,34 @@ ul.nav a:hover, ul.nav a:focus {
   padding-top: 20px;
   padding-bottom: 30px;
 }
+
+
+control-messages div {
+  color: #E82C0C;
+  margin: 6px 0;
+}
+.error {
+  color: #E82C0C;
+  margin: 6px 0;
+}
+
+.ng-invalid {
+  border-left: 5px solid #a94442; /* red */
+}
+
+form.ng-invalid {
+	border-left: none;
+}
+
+.required:after
+{ content:" *";
+  color:red;
+}
+
+div.ng-invalid {
+	border-left: none;
+}
+
+.form-horizontal .control-label{
+  text-align: left;
+}

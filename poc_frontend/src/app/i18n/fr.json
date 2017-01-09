@@ -1,4 +1,6 @@
 {
+	"errorMessage.Required":"Obligatoire",
+	"errorMessage.MaxLength":"Message exceeded max length of {{value}}",
 	"custom.entryxyz": "$$$$",
 	"menu.entry1": "Entrée 1",
 	"custom.entry1": "$$$$",

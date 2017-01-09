@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Http, Response, Headers, RequestOptions } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
+import 'rxjs/Rx';
 
 @Injectable()
 export class BackendService {
@@ -10,9 +11,9 @@ export class BackendService {
   callBackend (): Observable<string> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
     let options = new RequestOptions({ headers: headers });
-    return this.http.get('/api/greeting')
-                    .map(this.extractData);
-                    //.catch(this.handleError);
+    return this.http.get(this.backendUrl)
+                    .map(this.extractData)
+                    .catch(this.handleError);
   }
 
   private extractData(res: Response) {
@@ -20,7 +21,7 @@ export class BackendService {
     return  body || { }; //body.data
   }
 
-  private handleError (error: Response | any) {
+  private handleError (error: any) {
     let errMsg: string;
     if (error instanceof Response) {
       const body = error.json() || '';

@@ -53,3 +53,7 @@ div.ng-invalid {
 .form-horizontal .control-label{
   text-align: left;
 }
+
+textarea{
+    width: 100%;
+}

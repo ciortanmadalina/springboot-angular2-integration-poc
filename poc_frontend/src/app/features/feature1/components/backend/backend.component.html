@@ -1,20 +1,66 @@
 <h3> Backend integration</h3>
+
+<p>
+Find below an example of invoking the backend service search person by first name and last name 
+ ( http://localhost:8080/person/search?firstName=abc&lastName=def ):
+</p>
+
+<form [formGroup]="personForm"  >
+  <div class="form-horizontal">
+    <div class="form-group ">
+      <label class="control-label col-sm-3">First Name </label>
+      <div class="col-sm-9">
+        <input type="text" id="name" class="form-control" formControlName="firstName" required >
+        <control-messages [control]="personForm.controls.firstName"></control-messages>
+      </div>
+    </div>
+
+    <div class="form-group ">
+      <label class="control-label col-sm-3">Attribute1 </label>
+      <div class="col-sm-9">
+        <input type="text" id="name" class="form-control" formControlName="lastName" required >
+        <control-messages [control]="personForm.controls.lastName"></control-messages>
+      </div>
+    </div>
+
+    <button  type="button" class="btn btn-default" (click)="invokeBackend()" [disabled]="!personForm.valid">Invoke backend</button>
+    {{backendResponse}}
+  </div>
+</form>
+
+<h4> Configuration </h4>
 <p>
   In order to integrate with the backend, add a proxy.conf.json file where you define
-  how pattern of routes invoked by the frontend relate to the backend: <br>
-  {{'{
+  how pattern of routes invoked by the frontend relate to the backend: 
+</p>
+<textarea readonly ngNonBindable autosize>
+  {
     "/api": {
       "target": "http://localhost:8080",
       "pathRewrite":{"^/api" : ""}
     }
   }
-'}}
-  <br><br>
-  This configuration can be used either by modifying package.json to : <br>
-  "start": "ng serve --proxy-config proxy.conf.json" <br>
-  and starting the server with <i>npm start</i> <br><br>
-  or by starting the server with <i>ng serve --proxy-config proxy.conf.json</i>
+</textarea>
 
+<p>
+  This configuration can be used either by modifying package.json to : 
 </p>
-<button  type="button" (click)="invokeBackend()">Invoke backend</button>
-{{backendResponse}}
+<textarea readonly ngNonBindable autosize>
+  "start": "ng serve --proxy-config proxy.conf.json" 
+</textarea>
+
+<p>
+and starting the server with :
+</p>
+<textarea readonly ngNonBindable autosize>
+  npm start
+</textarea>
+
+<p>
+or by starting the server with :
+</p>
+<textarea readonly ngNonBindable autosize>
+  ng serve --proxy-config proxy.conf.json
+</textarea>
+
+<br>

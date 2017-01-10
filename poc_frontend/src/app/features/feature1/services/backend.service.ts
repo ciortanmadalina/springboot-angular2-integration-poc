@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
-import { Http, Response, Headers, RequestOptions } from '@angular/http';
+import { Http, Response, Headers, RequestOptions, URLSearchParams} from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/Rx';
 
 @Injectable()
 export class BackendService {
-  private backendUrl = '/api/greeting';
+  private backendUrl = '/api/person/search';
   constructor(private http: Http) { }
 
-  callBackend (): Observable<string> {
+  callBackend (firstName: string, lastName: string): Observable<string> {
     let headers = new Headers({ 'Content-Type': 'application/json' });
-    let options = new RequestOptions({ headers: headers });
-    return this.http.get(this.backendUrl)
+    let search: URLSearchParams =  new URLSearchParams();
+      search.append('firstName', firstName);
+      search.append('lastName', lastName);
+    let options = new RequestOptions({ headers: headers, search:search });
+    return this.http.get(this.backendUrl, options)
                     .map(this.extractData)
                     .catch(this.handleError);
   }
